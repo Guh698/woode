@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css"
+    />
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/eed7473860.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!--awesomplete-->
+    <link
+      rel="stylesheet"
+      href="https://leaverou.github.io/awesomplete/awesomplete.min.css"
+    />
+    <script src="https://leaverou.github.io/awesomplete/awesomplete.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Woode</title>
+  </head>
+  <body data-scroll-container>
+    <div class="container">
+      <div class="nav-container">
+        <nav>
+          <div class="nav-items" id="nav-items">
+            <div class="items">
+              <div class="navcategs1-container" id="categ1_items">
+                <ul>
+                  <li class="living">
+                    <a href="#" id="living-btn-nav"
+                      >living
+                      <div class="linha1 linhas1"></div>
+                    </a>
+                  </li>
+                  <li class="dinning">
+                    <a href="#" id="dinning-btn-nav"
+                      >dining
+                      <div class="linha2 linhas1"></div>
+                    </a>
+                  </li>
+                  <li class="bedroom">
+                    <a href="#" id="bedroom-btn-nav"
+                      >bedroom
+                      <div class="linha3 linhas1"></div>
+                    </a>
+                  </li>
+                  <li class="collections">
+                    <a href="#" id="collections-btn-nav"
+                      >collections
+                      <div class="linha4 linhas1"></div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="logomark" id="logomark">
+                <h1>Woode</h1>
+              </div>
+              <div class="logomark2" id="logomark2">
+                <h1 class="firstH1">Wo</h1>
+                <h1 class="secondH1">ode</h1>
+              </div>
+              <div class="navcategs2-container" id="categ2_items">
+                <ul class="desktop-nav">
+                  <li>
+                    <a href="#"
+                      ><i
+                        class="fa-solid fa-magnifying-glass"
+                        id="searchLupa"
+                      ></i
+                    ></a>
+                  </li>
+                  <li class="visit">
+                    <a href="#" id="visit-btn"
+                      >visit
+                      <div class="linha5 linhas2"></div>
+                    </a>
+                  </li>
+                  <li class="contactUs">
+                    <a href="#" id="contact-btn"
+                      >contact
+                      <div class="linha6 linhas2"></div>
+                    </a>
+                  </li>
+                </ul>
+                <!--mobile sidebar icons open/close-->
+                <ul class="mobile">
+                  <li class="mobile-menu" id="mobile-menu">
+                    <i class="fa-solid fa-bars" id="mobile-menu-icon"></i>
+                    <i class="fa-solid fa-xmark" id="close-menu-icon"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <!--main-->
+      <div class="main-container">
+        <main>
+          <!--search page-->
+          <div class="search_screen" id="search_screen">
+            <div class="lupa_input" id="lupa_input">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input
+                type="searc h"
+                placeholder="Search Items"
+                class="Lupa awesomplete"
+                id="Search_inputID"
+              />
+            </div>
+          </div>
+          <!-- Product Page -->
+          <div class="product-page-container" id="productPage">
+            <i class="fa-solid fa-chevron-left" id="backArrow3"></i>
+            <section class="product-details-section">
+              <div class="product-image" id="product-image">
+                <div class="product-details">
+                  <p id="productColor">Color: -</p>
+                  <p id="productSize">Size: -</p>
+                  <p id="productWeight">Weight: -</p>
+                </div>
+                <div class="product-img-color">
+                  <img src="" alt="Product Image" id="productImage" />
+                  <div class="colors" id="colors">
+                    <div class="color1 color"></div>
+                    <div class="color2 color"></div>
+                    <div class="color3 color"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h1 id="productTitle">Product Name</h1>
+                <p id="productDescription">
+                  This is a sample description of the product.
+                </p>
+                <div class="productPage-addToCart-btn" id="">
+                  Add to Selection
+                </div>
+              </div>
+            </section>
+          </div>
+          <!-- cart Page -->
+          <div class="cart-page-container" id="cartPage">
+            <section class="cartPage-side1" id="cartPage-side1">
+              <i class="fa-solid fa-chevron-left" id="backArrowCart"></i>
+              <h2 id="TitleCartPage">Your Exclusive Selection</h2>
+              <div class="cartList-container">
+                <ul id="cartList"></ul>
+              </div>
+            </section>
+            <section class="cartPage-side2" id="cartPage-side2">
+              <div class="priceBox">
+                <div class="priceBoxItems">
+                  <h3>Order Overview</h3>
+                  <p class="subTotalText" id="subtotal">subTotal: 0</p>
+                  <p id="itemsQntd">items: 0</p>
+                  <hr />
+                  <div class="checkInput">
+                    <label>
+                      <input type="checkbox" id="giftCheckbox" />
+                      this order contains a gift.
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="BuyingBtn" id="BuyingBtn">
+                Place Order via WhatsApp
+              </div>
+            </section>
+          </div>
+          <!--home banner-->
+          <div class="main-page-container" id="main-page-container">
+            <div class="MainPage" id="MainPage">
+              <div class="intro-container">
+                <div class="intro-banner">
+                  <h1>
+                    <span>M</span><span>a</span><span>k</span
+                    ><span>e</span>&nbsp;&nbsp;<span>y</span><span>o</span
+                    ><span>u</span><span>r</span>&nbsp;&nbsp;<span>h</span
+                    ><span>o</span><span>m</span><span>e</span>&nbsp;&nbsp;<span
+                      >b</span
+                    ><span>e</span><span>a</span><span>u</span><span>t</span
+                    ><span>i</span><span>f</span><span>u</span><span>l</span>
+                  </h1>
+                  <p>discover</p>
+                </div>
+              </div>
+              <!--products containers-->
+              <!--first container (products)-->
+              <a href="#" id="products-local"></a>
+              <section class="first-category-container" data-scroll>
+                <div class="first-category">
+                  <div class="half-screen-1-ad">
+                    <!--product 1-->
+                    <article class="product1 product" id="product1">
+                      <div class="img-container">
+                        <img
+                          src="https://res.cloudinary.com/dabshzrnj/image/upload/w_400,h_500,c_fill/coffeetable_eel6ci.jpg"
+                          loading="lazy"
+                          width="100%"
+                          height="100%"
+                          class="product-img"
+                        />
+                      </div>
+                      <div class="product1-sub product-sub">
+                        <p class="name">Coffee Table Vase</p>
+                        <p class="price">R$50</p>
+                      </div>
+                      <div class="seeMore">See more</div>
+                    </article>
+                    <!--product 2-->
+                    <article class="product2 product" id="product2">
+                      <div class="img-container">
+                        <img
+                          src="https://res.cloudinary.com/dabshzrnj/image/upload/w_400,h_500,c_fill/framedecor_rzpa8w.jpg"
+                          loading="lazy"
+                          width="100%"
+                          height="100%"
+                          class="product-img"
+                        />
+                      </div>
+                      <div class="product2-sub product-sub">
+                        <p class="name">Memories in Frame</p>
+                        <p class="price">R$150</p>
+                      </div>
+                      <div class="seeMore">See more</div>
+                    </article>
+                  </div>
+                  <!--product 3-->
+                  <div class="half-screen-2-ad">
+                    <article class="product3 product" id="product3">
+                      <div class="img-container">
+                        <img
+                          src="imgs/canepé.png"
+                          loading="lazy"
+                          width="120%"
+                          height="100%"
+                          class="product-img"
+                        />
+                      </div>
+                      <div class="product3-sub product-sub">
+                        <p class="name">Lounge Chair</p>
+                        <p class="price">R$370</p>
+                      </div>
+                      <div class="seeMore">See more</div>
+                    </article>
+                  </div>
+                </div>
+              </section>
+              <!--second container (poster and marketing message)-->
+              <section class="second-category-container" data-scroll>
+                <div class="second-category">
+                  <!--poster-->
+                  <div class="half-screen-1-poster">
+                    <img
+                      src="https://res.cloudinary.com/dabshzrnj/image/upload/w_800,h_700,c_fill/poster_toohoj.jpg"
+                      loading="lazy"
+                      width="100%"
+                      height="100%"
+                      class="interior-banner"
+                    />
+                  </div>
+                  <!--marketing message-->
+                  <div class="half-screen-2-marketing">
+                    <div class="woode-marketing">
+                      <h1>Woode interiors</h1>
+                      <p>
+                        The art of living well begins in the details. At Woode,
+                        every piece is crafted to turn spaces into sanctuaries —
+                        with natural elegance, organic textures, and designs
+                        that embrace. More than furniture — it's style, soul,
+                        and comfort for your home.
+                      </p>
+                      <div class="button">
+                        Learn More
+                        <div class="linha-button"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!--third container (more products (main products))-->
+              <section class="third-category-container" data-scroll>
+                <div class="third-category">
+                  <!--product 4-->
+                  <article class="product4 product" id="product4">
+                    <div class="img-container">
+                      <img
+                        src="https://res.cloudinary.com/dabshzrnj/image/upload/w_400,h_600,c_fill/pencils_wfqqtp.jpg"
+                        loading="lazy"
+                        width="100%"
+                        height="100%"
+                      />
+                    </div>
+                    <div class="product4-sub product-sub">
+                      <p class="name">pencils to decor</p>
+                      <p class="price">R$30</p>
+                    </div>
+                    <div class="seeMore">See more</div>
+                  </article>
+                  <!--product 5-->
+                  <article class="product5 product" id="product5">
+                    <div class="img-container">
+                      <img
+                        src="https://res.cloudinary.com/dabshzrnj/image/upload/w_800,h_1000,c_fill/vase_br0tuq.jpg"
+                        loading="lazy"
+                        width="100%"
+                        height="100%"
+                      />
+                    </div>
+                    <div class="product5-sub product-sub">
+                      <p class="name">vase decor</p>
+                      <p class="price">R$70</p>
+                    </div>
+                    <div class="seeMore">See more</div>
+                  </article>
+                  <!--product 6-->
+                  <article class="product6 product" id="product6">
+                    <div class="img-container">
+                      <img
+                        src="https://res.cloudinary.com/dabshzrnj/image/upload/w_700,h_900,c_fill/vaseandmirror_dcgvkr.jpg"
+                        loading="lazy"
+                        width="100%"
+                        height="100%"
+                      />
+                    </div>
+                    <div class="product6-sub product-sub">
+                      <p class="name">mirror & stuffs</p>
+                      <p class="price">R$90</p>
+                    </div>
+                    <div class="seeMore">See more</div>
+                  </article>
+                  <!--product 7-->
+                  <article class="product7 product" id="product7">
+                    <div class="img-container">
+                      <img
+                        src="https://res.cloudinary.com/dabshzrnj/image/upload/w_800,h_900,c_fill/lampshade_fv3lpo.jpg"
+                        loading="lazy"
+                        width="100%"
+                        height="100%"
+                      />
+                    </div>
+                    <div class="product7-sub product-sub">
+                      <p class="name">Modern lampshade</p>
+                      <p class="price">R$180</p>
+                    </div>
+                    <div class="seeMore">See more</div>
+                  </article>
+                </div>
+              </section>
+              <!--fourth container (other poster and message)-->
+              <section class="fourth-category-container" data-scroll>
+                <div class="fourth-category">
+                  <!--poster-->
+                  <div class="half-screen-1-poster2">
+                    <img
+                      src="https://res.cloudinary.com/dabshzrnj/image/upload/v1742842902/sofa_z0vsu0.jpg"
+                      loading="eager"
+                      width="100%"
+                      height="100%"
+                      class="interior-banner"
+                    />
+                  </div>
+                  <!--marketing message-->
+                  <div class="half-screen-2-marketing2">
+                    <div class="woode-marketing2">
+                      <h1>comfort is what matters</h1>
+                      <p>
+                        Because home is where the body rests and the soul
+                        breathes. At Woode, we believe comfort goes beyond touch
+                        — it's in the quiet, the harmony, the feeling of
+                        belonging. Choose to feel at home, always.
+                      </p>
+                      <div class="button">
+                        See More
+                        <div class="linha-button2"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <!--Living nav page-->
+            <div class="living-page-container" id="living-page-container">
+              <div class="lists-container">
+                <section class="column1">
+                  <ul>
+                    <h3>seating</h3>
+                    <li>Sofas</li>
+                    <li>Chairs</li>
+                    <li>Benches</li>
+                    <li>Modular</li>
+                  </ul>
+                </section>
+                <section class="column2">
+                  <ul>
+                    <h3>tables</h3>
+                    <li>Coffee Tables</li>
+                    <li>Console tables</li>
+                    <li>Side tables</li>
+                    <li>Desks</li>
+                  </ul>
+                </section>
+              </div>
+              <div class="sections-img">
+                <div class="img1-catalog">
+                  <img
+                    src="https://res.cloudinary.com/dabshzrnj/image/upload/w_700,h_900,c_fill/sala_rach0m.jpg"
+                    loading="eager"
+                    width="45%"
+                    height="70%"
+                    class="banner1"
+                  />
+                  <div class="sub1">Living room</div>
+                </div>
+                <div class="img2-catalog">
+                  <img
+                    src="imgs/canepé.png"
+                    loading="eager"
+                    width="45%"
+                    height="70%"
+                    class="banner2"
+                  />
+                  <div class="sub2">canapés</div>
+                </div>
+              </div>
+            </div>
+            <!--Dinning nav page-->
+            <div class="dinning-page-container" id="dinning-page-container">
+              <div class="lists-container2">
+                <section class="column1">
+                  <ul>
+                    <h3>seating && tables</h3>
+                    <li>Dining Tables</li>
+                    <li>Dining Chairs</li>
+                    <li>Console tables</li>
+                  </ul>
+                </section>
+                <section class="column2">
+                  <ul>
+                    <h3>Decoration</h3>
+                    <li>Plants or Artificial Plants</li>
+                    <li>Platters and Plates</li>
+                    <li>Mirrors</li>
+                  </ul>
+                </section>
+              </div>
+              <div class="sections-img">
+                <div class="img3-catalog">
+                  <img
+                    src="https://res.cloudinary.com/dabshzrnj/image/upload/w_1200,h_1100,c_fill/dinningroom_zseicu.jpg"
+                    loading="eager"
+                    width="45%"
+                    height="70%"
+                    class="banner3"
+                  />
+                  <div class="sub1">dining room</div>
+                </div>
+                <div class="img4-catalog">
+                  <img
+                    src="https://res.cloudinary.com/dabshzrnj/image/upload/w_800,h_900,c_fill/table_o08jzk.jpg"
+                    loading="eager"
+                    width="45%"
+                    height="70%"
+                    class="banner4"
+                  />
+                  <div class="sub2">Tables</div>
+                </div>
+              </div>
+            </div>
+            <!--bedroom nav page-->
+            <div class="bedroom-page-container" id="bedroom-page-container">
+              <div class="lists-container3">
+                <section class="column1">
+                  <ul>
+                    <h3>Beds & Storage</h3>
+                    <li>Beds</li>
+                    <li>Nightstands</li>
+                    <li>Dressers & Wardrobes</li>
+                  </ul>
+                </section>
+                <section class="column2">
+                  <ul>
+                    <h3>Bedroom Decor</h3>
+                    <li>Bedside Lamps</li>
+                    <li>Wall Art & Mirrors</li>
+                    <li>Rugs & Carpets</li>
+                  </ul>
+                </section>
+              </div>
+              <div class="sections-img">
+                <div class="img3-catalog">
+                  <img
+                    src="https://res.cloudinary.com/dabshzrnj/image/upload/w_800,h_900,c_fill/bedroom_mhelxj.jpg"
+                    loading="eager"
+                    width="45%"
+                    height="70%"
+                    class="banner5"
+                  />
+                  <div class="sub1">bedroom</div>
+                </div>
+                <div class="img4-catalog">
+                  <img
+                    src="https://res.cloudinary.com/dabshzrnj/image/upload/w_800,h_900,c_fill/beds_x60clx.jpg"
+                    loading="eager"
+                    width="45%"
+                    height="70%"
+                    class="banner6"
+                  />
+                  <div class="sub2">beds</div>
+                </div>
+              </div>
+            </div>
+            <!--collections nav page-->
+            <div
+              class="collections-page-container"
+              id="collections-page-container"
+            >
+              <div class="lists-container4">
+                <section class="column1">
+                  <ul>
+                    <h3>decor themes</h3>
+                    <li>Urban Minimalism</li>
+                    <li>Boho & Laid-Back Style</li>
+                    <li>Comfort & Sophistication</li>
+                  </ul>
+                </section>
+                <section class="column2">
+                  <ul>
+                    <h3>the latest trends</h3>
+                    <li>Spring/Summer Collection</li>
+                    <li>Fall/Winter Collection</li>
+                    <li>Trend of the Year</li>
+                  </ul>
+                </section>
+              </div>
+              <div class="sections-img">
+                <div class="img3-catalog">
+                  <img
+                    src="https://res.cloudinary.com/dabshzrnj/image/upload/w_1100,h_800,c_fill/winter_wm6i8a.jpg"
+                    loading="eager"
+                    width="45%"
+                    height="70%"
+                    class="banner5"
+                  />
+                  <div class="sub1">winter</div>
+                </div>
+                <div class="img4-catalog">
+                  <img
+                    src="https://res.cloudinary.com/dabshzrnj/image/upload/w_1200,h_900,c_fill/summer_u4t0wa.jpg"
+                    loading="eager"
+                    width="45%"
+                    height="70%"
+                    class="banner6"
+                  />
+                  <div class="sub2">summer</div>
+                </div>
+              </div>
+            </div>
+            <!--visit nav page-->
+            <div class="visit-page-container" id="visit-page-container">
+              <div class="visit-container">
+                <div class="half-screen-1-about">
+                  <div class="woode-about">
+                    <div class="store-adress">
+                      <h1>Visit Us</h1>
+                      <p>Woode</p>
+                      <p>45-39 Av. de la Bourdonnais</p>
+                      <p>Paris, France</p>
+                    </div>
+                    <div class="work-time">
+                      Monday-Thursday: 10AM-6PM
+                      <p>Friday: 10AM-5PM</p>
+                      <p>Saturday:11AM-7PM</p>
+                      <p>Sunday:12PM-6PM</p>
+                    </div>
+                    <div class="email-adress">
+                      <p>france@woode.com</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="half-screen-2-visit">
+                  <img
+                    src="https://res.cloudinary.com/dabshzrnj/image/upload/w_1000,h_900,c_fill/store_llgjkc.jpg"
+                    loading="lazy"
+                    width="100%"
+                    height="100%"
+                    class="visit-banner"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- mobile visit side page-->
+            <div class="visit-list-container2" id="visit-list-container2">
+              <div class="visit-page-container2" id="visit-page-container2">
+                <div class="visit-container2">
+                  <div class="half-screen-1-about2">
+                    <i class="fa-solid fa-chevron-left" id="back-arrow2"></i>
+                    <div class="woode-about2">
+                      <div class="store-adress2">
+                        <h1>Visit Us</h1>
+                        <p>Woode</p>
+                        <p>45-39 Av. de la Bourdonnais</p>
+                        <p>Paris, France</p>
+                      </div>
+                      <div class="work-time2">
+                        Monday-Thursday: 10AM-6PM
+                        <p>Friday: 10AM-5PM</p>
+                        <p>Saturday:11AM-7PM</p>
+                        <p>Sunday:12PM-6PM</p>
+                      </div>
+                      <div class="email-adress2">
+                        <p>france@woode.com</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="half-screen-2-visit2">
+                    <img
+                      src="https://res.cloudinary.com/dabshzrnj/image/upload/w_1000,h_900,c_fill/store_llgjkc.jpg"
+                      loading="lazy"
+                      width="100%"
+                      height="100%"
+                      class="visit-banner"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--contact nav page-->
+            <div class="contact-page-container" id="contact-page-container">
+              <div class="contact-container">
+                <i class="fa-solid fa-chevron-left" id="back-arrow4"></i>
+                <div class="half-screen-1-about">
+                  <div class="woode-about">
+                    <div class="store-about">
+                      <h1>About Us</h1>
+                      <p>
+                        Woode is a premium furniture brand based in Paris. We
+                        create timeless, handcrafted pieces using fine wood and
+                        natural materials — where design meets soul.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="half-screen-2-about">
+                  <div class="woode-contact">
+                    <div class="store-contact">
+                      <h1>Contact</h1>
+                    </div>
+                    <div class="ContactMails">
+                      <p>45-39 Av. de la Bourdonnais</p>
+                      <p>+33 1 42 00 00 00</p>
+                      <p>
+                        <a
+                          href="https://woodewebsite.netlify.app/"
+                          target="_blank"
+                          >www.woodewebsite.netlify.app</a
+                        >
+                      </p>
+                      <p>
+                        Instagram:
+                        <a
+                          href="https://www.instagram.com/guhs_32/"
+                          target="_blank"
+                          >@woode.paris</a
+                        >
+                      </p>
+                      <p>
+                        WhatsApp:
+                        <a
+                          href="https://wa.me/5519993244478?text=Olá,%20tenho%20interesse%20em%20fechar%20um%20pedido.
+                    "
+                          target="_blank"
+                          >Contact Us</a
+                        >
+                      </p>
+                      <p>france@woode.com</p>
+                    </div>
+                    <div class="email-message">
+                      <p>We'll be happy to hear from you.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--side bar mobile container-->
+            <div class="sidebar-container" id="sidebar-container">
+              <!--menu side bar-->
+              <div class="menu-mbl" id="menu-mbl">
+                <div class="menu-items">
+                  <i class="fa-solid fa-chevron-left" id="back-arrow"></i>
+                  <div class="navcategs1-mbl">
+                    <ul>
+                      <!--Living-->
+                      <li class="living-mbl">
+                        <div class="living-side-container">
+                          <div class="side-option1" id="side-option">
+                            <a href="#section1" id="living-btn-mbl">living </a>
+                            <i
+                              class="fa-solid fa-chevron-right"
+                              id="fa-chevron-right1"
+                            ></i>
+                          </div>
+                          <div
+                            class="living-list-container"
+                            id="living-list-container"
+                          >
+                            <ul>
+                              <h3>seating</h3>
+                              <li>
+                                <a href="#">Sofas</a>
+                              </li>
+                              <li>
+                                <a href="#">Chairs</a>
+                              </li>
+                              <li>
+                                <a href="#">Benches</a>
+                              </li>
+                              <li>
+                                <a href="#">Modular</a>
+                              </li>
+                            </ul>
+                            <ul>
+                              <h3>tables</h3>
+                              <li>
+                                <a href="#">Coffee Tables</a>
+                              </li>
+                              <li>
+                                <a href="#">Console tables</a>
+                              </li>
+                              <li>
+                                <a href="#">Side tables</a>
+                              </li>
+                              <li>
+                                <a href="#">Desks</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                      <!--dinning-->
+                      <li class="dinning-mbl">
+                        <div class="dinning-side-container">
+                          <div class="side-option2" id="side-option2">
+                            <a
+                              href="#section2"
+                              class="side"
+                              id="dinning-btn-mbl"
+                              >dinning
+                            </a>
+                            <i
+                              class="fa-solid fa-chevron-right"
+                              id="fa-chevron-right2"
+                            ></i>
+                          </div>
+                          <div
+                            class="dinning-list-container"
+                            id="dinning-list-container"
+                          >
+                            <ul>
+                              <h3>seating && tables</h3>
+                              <li>
+                                <a href="#">Dining Tables</a>
+                              </li>
+                              <li>
+                                <a href="#">Dining Chairs</a>
+                              </li>
+                              <li>
+                                <a href="#">Console tables</a>
+                              </li>
+                            </ul>
+                            <ul>
+                              <h3>Decoration</h3>
+                              <li>
+                                <a href="#">Plants </a>
+                              </li>
+                              <li>
+                                <a href="#">Platters and Plates</a>
+                              </li>
+                              <li>
+                                <a href="#">Mirrors</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                      <!--bedroom-->
+                      <li class="bedroom-mbl">
+                        <div class="bedroom-side-container">
+                          <div class="side-option3" id="side-option3">
+                            <a href="#section3" id="bedroom-btn-mbl"
+                              >bedroom
+                            </a>
+                            <i
+                              class="fa-solid fa-chevron-right"
+                              id="fa-chevron-right3"
+                            ></i>
+                          </div>
+                          <div
+                            class="bedroom-list-container"
+                            id="bedroom-list-container"
+                          >
+                            <ul>
+                              <h3>Beds & Storage</h3>
+                              <li>
+                                <a href="#">Beds</a>
+                              </li>
+                              <li>
+                                <a href="#">Nightstands</a>
+                              </li>
+                              <li>
+                                <a href="#">Dressers & Wardrobes</a>
+                              </li>
+                            </ul>
+                            <ul>
+                              <h3>the latest trends</h3>
+                              <li><a href="#">Spring/Summer Collection</a></li>
+                              <li><a href="#">Fall/Winter Collection</a></li>
+                              <li><a href="#">Trend of the Year</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                      <!--collections-->
+                      <li class="collections-mbl">
+                        <div class="collections-side-container">
+                          <div class="side-option4" id="side-option4">
+                            <a href="#section4" id="collections-btn-mbl"
+                              >collections
+                            </a>
+                            <i
+                              class="fa-solid fa-chevron-right"
+                              id="fa-chevron-right4"
+                            ></i>
+                          </div>
+                          <div
+                            class="collections-list-container"
+                            id="collections-list-container"
+                          >
+                            <ul>
+                              <h3>Decor themes</h3>
+                              <li><a href="#">Urban Minimalism</a></li>
+                              <li><a href="#">Boho & Laid-Back Style</a></li>
+                              <li><a href="#">Comfort & Sophistication</a></li>
+                            </ul>
+                            <ul>
+                              <h3>Bedroom Decor</h3>
+                              <li>
+                                <a href="#">Bedside Lamps</a>
+                              </li>
+                              <li>
+                                <a href="#">Wall Art & Mirrors</a>
+                              </li>
+                              <li>
+                                <a href="#">Rugs & Carpets</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="navcategs2-mbl">
+                    <ul>
+                      <!--visit-->
+                      <li class="visit-mbl">
+                        <div class="visit-side-container">
+                          <div class="side-option5" id="side-option5">
+                            <a href="#section5" id="visit-btn-mbl">visit </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="contact-mbl">
+                        <div class="contact-side-container">
+                          <div class="side-option6" id="side-option6">
+                            <a href="#section6" id="contact-btn-mbl"
+                              >contact
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="cart-mbl">
+                        <div class="cart-side-container">
+                          <div class="side-option7" id="side-option7">
+                            <a href="#section7" id="cart-btn-mbl"
+                              >Shopping Bag</a
+                            >
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <!--footer-->
+                  <footer class="side-footer">
+                    <div class="footer-container">
+                      <div class="categories-footer">
+                        <ul>
+                          <li><a href="#section1">living</a></li>
+                          <li><a href="#section2">dinning</a></li>
+                          <li><a href="#section3">bedroom</a></li>
+                          <li><a href="#section3">collections</a></li>
+                        </ul>
+                      </div>
+                      <div class="other">
+                        <ul>
+                          <div class="destac">
+                            <li><a href="#">about</a></li>
+                          </div>
+                          <li><a href="#">privacy policy</a></li>
+                          <div class="destac">
+                            <li>
+                              <a
+                                href="https://wa.me/5519993244478?text=Olá,%20tenho%20interesse%20em%20fechar%20um%20pedido.
+                          "
+                                target="_blank"
+                                >we're on whatsapp</a
+                              >
+                            </li>
+                          </div>
+                          <li>
+                            <a
+                              href="https://www.instagram.com/guhs_32/"
+                              target="_blank"
+                              >instagram</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="logo-footer">
+                        <h1>
+                          <span>w</span><span>o</span><span>o</span
+                          ><span>d</span><span>e</span>
+                        </h1>
+                      </div>
+                    </div>
+                  </footer>
+                </div>
+              </div>
+            </div>
+            <div class="backToTop" id="arrowToTop" data-scroll>
+              <i class="fa-solid fa-chevron-up"></i>
+            </div>
+          </div>
+        </main>
+      </div>
+      <!--footer-->
+      <footer id="footer" class="footer">
+        <div class="footer-container" id="footerContainer">
+          <div class="categories-footer" id="categoriesFooter">
+            <ul>
+              <li><a href="#">living</a></li>
+              <li><a href="#">dining</a></li>
+              <li><a href="#">bedroom</a></li>
+              <li><a href="#">collections</a></li>
+            </ul>
+          </div>
+          <div class="other" id="otherFooter">
+            <ul>
+              <div class="destac">
+                <li><a href="#">about</a></li>
+              </div>
+              <li><a href="#">privacy policy</a></li>
+              <div class="destac">
+                <li>
+                  <a
+                    href="https://wa.me/5519993244478?text=Olá,%20tenho%20interesse%20em%20fechar%20um%20pedido.
+                  "
+                    target="_blank"
+                    >we're on whatsapp</a
+                  >
+                </li>
+              </div>
+              <li>
+                <a href="https://www.instagram.com/guhs_32/" target="_blank"
+                  >instagram</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="logo-footer" id="LogoFooter">
+            <h1>
+              <span>w</span><span>o</span><span>o</span><span>d</span
+              ><span>e</span>
+            </h1>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
