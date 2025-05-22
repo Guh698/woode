@@ -8,7 +8,6 @@
 
 - **HTML5, CSS3, JavaScript**
 - **GSAP**: Biblioteca para animações dinâmicas e interativas.
-- **Locomotive Scroll**: Para scroll suave e interativo.
 - **CSS Flexbox**: Layout responsivo e moderno.
 
 ---
@@ -20,7 +19,7 @@
 - **Compra via WhatsApp**: Finalize a compra diretamente pelo WhatsApp, facilitando a comunicação com o cliente.
 - **Design Refinado**: Layout moderno e elegante, pensado para oferecer uma experiência de usuário de alto nível.
 - **Animações Avançadas**: Utilização do GSAP para transições e animações fluidas nas páginas.
-- **Scroll Interativo**: Navegação imersiva e suave com o Locomotive Scroll.
+- **Scroll Interativo**: Navegação imersiva e suave com o ScrollSmoother.
 
 ---
 
