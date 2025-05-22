@@ -86,6 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const ItemsEl = document.getElementById("itemsQntd");
   const arrowToTop = document.getElementById("arrowToTop");
   const SideBackArrowCart = document.getElementById("back-arrowCartSide");
+  const cartBtnNav = document.getElementById("cartNav-btn");
 
   const smoother = ScrollSmoother.create({
     wrapper: "#smooth-wrapper",
@@ -231,6 +232,41 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       resumeScroll();
     }
+  }
+
+  function ToggleCartPageOnNav() {
+    main_page.classList.remove("showOff");
+    cartPage.classList.toggle("show");
+    tittle.classList.add("show");
+    living_page.classList.remove("show");
+    dinning_page.classList.remove("show");
+    bedroom_page.classList.remove("show");
+    collections_page.classList.remove("show");
+    visit_page.classList.remove("show");
+    search_screen.classList.remove("show");
+    categ1_items.classList.remove("show");
+    categ2_items.classList.remove("show");
+    tittle.classList.remove("show");
+    productPage.classList.remove("show");
+    contact_page.classList.remove("show");
+    title2.classList.remove("show");
+    titulo.classList.remove("showOff");
+
+    if (cartPage.classList.contains("show")) {
+      main_page.classList.add("showOff");
+      nav_items.classList.add("show");
+      ToggleFooterShow();
+      resumeScroll();
+    } else {
+      nav_items.classList.remove("show");
+      RemoveFooterShow();
+    }
+  }
+
+  if (cartBtnNav) {
+    cartBtnNav.addEventListener("click", () => {
+      ToggleCartPageOnNav();
+    });
   }
 
   function ToggleProductPage() {
