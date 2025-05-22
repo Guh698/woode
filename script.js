@@ -251,6 +251,8 @@ document.addEventListener("DOMContentLoaded", () => {
     contact_page.classList.remove("show");
     title2.classList.remove("show");
     titulo.classList.remove("showOff");
+    backArrowCart.classList.remove("show");
+    SideBackArrowCart.classList.remove("show");
 
     if (cartPage.classList.contains("show")) {
       main_page.classList.add("showOff");
