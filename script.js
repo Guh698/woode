@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
+
 document.addEventListener("DOMContentLoaded", () => {
   /*living page*/
   const living_btn_nav = document.getElementById("living-btn-nav");
@@ -67,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cart_btn_side = document.getElementById("cart-btn-mbl");
   /*general*/
   const main_page = document.getElementById("main-page-container");
+  const ArrowBacktoTop = document.getElementById("arrowToTop");
   //footer
   const footer = document.getElementById("footer");
   const LogoFooter = document.getElementById("LogoFooter");
@@ -82,44 +85,107 @@ document.addEventListener("DOMContentLoaded", () => {
   const ItemsInCart = [];
   const ItemsEl = document.getElementById("itemsQntd");
   const arrowToTop = document.getElementById("arrowToTop");
+  const SideBackArrowCart = document.getElementById("back-arrowCartSide");
 
-  // Inicialização do Locomotive Scroll
-  let scroll;
+  const smoother = ScrollSmoother.create({
+    wrapper: "#smooth-wrapper",
+    content: "#smooth-content",
+    smooth: 1,
+    smoothTouch: 0.1,
+  });
+
+  let scrollPos = 0;
+
+  gsap.utils.toArray(".fade-up").forEach((section) => {
+    gsap.fromTo(
+      section,
+      { y: 75 },
+      {
+        y: 0,
+        duration: 0.5,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 100%",
+          end: "top 20%",
+          scrub: true,
+        },
+      }
+    );
+  });
 
   /*functions*/
-  function refreshScroll() {
+  function ToggleSideCart() {
+    main_page.classList.add("showOff");
+    cartPage.classList.add("show");
+    sidebar_container.classList.remove("show");
+    SideBackArrowCart.classList.add("show");
+    resumeScroll();
+  }
+
+  function CloseSideCart() {
+    main_page.classList.remove("showOff");
+    cartPage.classList.remove("show");
+    main_page.classList.remove("showOff");
+    sidebar_container.classList.add("show");
+    SideBackArrowCart.classList.remove("show");
+    backArrowCart.classList.remove("show");
+    pauseScroll();
+    RemoveCartVerify();
+  }
+
+  function scrollToTopWithDelay(delay = 10) {
     setTimeout(() => {
-      scroll.update();
-      scrollTrigger.refresh();
-    }, 90);
+      gsap.to(smoother, {
+        scrollTop: 0,
+        duration: 0.5,
+        ease: "power2.inOut",
+      });
+    }, delay);
+  }
+
+  function scrollToSavedPositionWithDelay(delay = 10) {
+    setTimeout(() => {
+      gsap.to(smoother, {
+        scrollTop: scrollPos,
+        duration: 0.5,
+        ease: "power1.inOut",
+      });
+    }, delay);
+  }
+
+  function pauseScroll() {
+    smoother.paused(true);
+  }
+
+  function resumeScroll() {
+    smoother.paused(false);
   }
 
   function ToggleCartPage() {
     main_page.classList.add("showOff");
     cartPage.classList.add("show");
     nav_items.classList.add("show");
-    mobile_menu_icon.classList.add("remove-show");
     tittle.classList.add("show");
+    mobile_menu_icon.classList.add("remove-show");
     sidebar_container.classList.remove("show");
-    refreshScroll();
-    setTimeout(() => {
-      scroll.scrollTo(0, { duration: 3 });
-      unlockScroll();
-    }, 100);
+    backArrowCart.classList.add("show");
+    SideBackArrowCart.classList.remove("show");
+    scrollToTopWithDelay();
+    resumeScroll();
+    RemoveCartVerify();
   }
 
   function CloseCartPage() {
     main_page.classList.remove("showOff");
     cartPage.classList.remove("show");
-    nav_items.classList.remove("show");
     tittle.classList.remove("show");
+    nav_items.classList.remove("show");
     close_menu_icon.classList.remove("show");
     mobile_menu_icon.classList.remove("remove-show");
-    refreshScroll();
-
-    setTimeout(() => {
-      scroll.scrollTo(scrollPosition, { duration: 3 });
-    }, 90);
+    backArrowCart.classList.remove("show");
+    RemoveFooterShow();
+    RemoveCartVerify();
   }
 
   function updateSubtotal() {
@@ -158,11 +224,11 @@ document.addEventListener("DOMContentLoaded", () => {
     main_page.classList.remove("showOff");
     tittle.classList.remove("show");
     productPage.classList.remove("show");
-    scrollPosition = scroll.scroll.instance.scroll.y;
     CloseCartPage();
   }
 
   function ToggleProductPage() {
+    scrollPos = smoother.scrollTop();
     nav_items.classList.add("show");
     main_page.classList.add("showOff");
     mobile_menu_icon.classList.add("remove-show");
@@ -171,8 +237,8 @@ document.addEventListener("DOMContentLoaded", () => {
     titulo.classList.remove("showOff");
     categ1_items.classList.remove("show");
     categ2_items.classList.remove("show");
-    scroll.scrollTo(0, { duration: 3 });
-    refreshScroll();
+    resumeScroll();
+    scrollToTopWithDelay();
   }
 
   function ToggleCartVerify() {
@@ -189,10 +255,6 @@ document.addEventListener("DOMContentLoaded", () => {
     mobile_menu_icon.classList.remove("remove-show");
     tittle.classList.remove("show");
     productPage.classList.remove("show");
-    refreshScroll();
-    setTimeout(() => {
-      scroll.scrollTo(scrollPosition, { duration: 3 });
-    }, 90);
   }
 
   function addItemToCart(productData) {
@@ -222,7 +284,6 @@ document.addEventListener("DOMContentLoaded", () => {
       li.remove(); // remove do HTML
       updateSubtotal();
       updateItems();
-      refreshScroll();
     };
     updateSubtotal();
     updateItems();
@@ -272,16 +333,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /*general code*/
   window.addEventListener("load", () => {
-    // Inicialize o LocomotiveScroll apenas depois que o window.load for disparado
-    scroll = new LocomotiveScroll({
-      el: document.querySelector("[data-scroll-container]"),
-      smooth: true,
-      lerp: 0.08,
-      multiplier: 1.2,
-    });
-
-    let scrollPosition = 0;
-
     // Correção para animações do GSAP
     scroll.on("scroll", (args) => {
       gsap.to(".specialties-container ul li", {
@@ -325,6 +376,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Atualiza a navbar
     if (anyPageOpen) {
+      CloseCartPage();
       nav_items.classList.add("show");
       productPage.classList.remove("show");
       footer.classList.remove("show");
@@ -336,15 +388,11 @@ document.addEventListener("DOMContentLoaded", () => {
       titulo.classList.remove("showOff");
       categ1_items.classList.remove("show");
       categ2_items.classList.remove("show");
-      scroll.stop();
-      lockScroll();
-      CloseCartPage();
+      pauseScroll();
     } else {
       tittle.classList.remove("show");
       nav_items.classList.remove("show");
-      scroll.start();
-      refreshScroll();
-      unlockScroll();
+      resumeScroll();
     }
 
     if (search_screen.classList.contains("show")) {
@@ -458,11 +506,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const productIMG = document.getElementById("product-image");
   const CartBtn = document.querySelector(".productPage-addToCart-btn");
 
-  let scrollPosition = 0;
-
   function toggleProduct(productData) {
     let anyProductPageOpen = false;
-    scrollPosition = scroll.scroll.instance.scroll.y;
 
     // Populate content
     titleEl.textContent = productData.title;
@@ -501,7 +546,6 @@ document.addEventListener("DOMContentLoaded", () => {
         addItemToCart(productData); // adiciona o produto
         CloseProductPage(); // fecha página de produto
         ToggleCartPage(); // abre o carrinho
-        ToggleArrowCartShow();
         ToggleFooterShow();
       };
     }
@@ -516,18 +560,15 @@ document.addEventListener("DOMContentLoaded", () => {
   if (backArrow3) {
     backArrow3.addEventListener("click", function () {
       CloseProductPage();
+      scrollToSavedPositionWithDelay();
       RemoveFooterShow();
-      scroll.start();
-      unlockScroll();
     });
   }
 
   if (cartPage && backArrowCart) {
     backArrowCart.addEventListener("click", () => {
       CloseCartPage();
-      scroll.scrollTo(scrollPosition, { duration: 3 });
-      RemoveFooterShow();
-      RemoveCartVerify();
+      scrollToSavedPositionWithDelay();
     });
   }
 
@@ -535,12 +576,8 @@ document.addEventListener("DOMContentLoaded", () => {
     contact_btn.addEventListener("click", function () {
       ToggleContactPage();
       if (contact_page.classList.contains("show")) {
-        scroll.stop();
-        lockScroll();
-      } else {
-        scroll.start();
-        unlockScroll();
-      }
+      } /*else {
+      }*/
     });
   }
 
@@ -575,23 +612,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   //mobile
-  //lock scroll
-  function lockScroll() {
-    document.body.classList.add("no-scroll");
-    document.body.addEventListener("touchmove", preventTouchScroll, {
-      passive: false,
-    });
-  }
-
-  function unlockScroll() {
-    document.body.classList.remove("no-scroll");
-    document.body.removeEventListener("touchmove", preventTouchScroll);
-  }
-
   if (mobile_menu_icon && close_menu_icon && sidebar_container) {
     mobile_menu_icon.addEventListener("click", function () {
-      const isOpen = sidebar_container.classList.toggle("show");
-      scrollPosition = scroll.scroll.instance.scroll.y;
       mobile_menu_icon.classList.add("remove-show");
       close_menu_icon.classList.add("show");
       sidebar_container.classList.add("show");
@@ -604,14 +626,7 @@ document.addEventListener("DOMContentLoaded", () => {
       side5.classList.add("show");
       side6.classList.add("show");
       side7.classList.add("show");
-
-      if (isOpen) {
-        scroll.stop();
-        lockScroll();
-      } else {
-        scroll.start();
-        unlockScroll();
-      }
+      pauseScroll();
     });
   }
 
@@ -638,12 +653,9 @@ document.addEventListener("DOMContentLoaded", () => {
       tittle.classList.remove("show2");
       back_arrow.classList.remove("show");
       CloseCartPage();
+      resumeScroll();
       RemoveFooterShow();
       RemoveCartVerify();
-
-      scroll.start(); // reativa o Locomotive Scroll
-      unlockScroll();
-      closeAll();
     });
   }
 
@@ -737,8 +749,14 @@ document.addEventListener("DOMContentLoaded", () => {
   if (cart_btn_side) {
     cart_btn_side.onclick = () => {
       ToggleFooterShow();
-      ToggleCartPage();
+      ToggleSideCart();
     };
+  }
+
+  if (SideBackArrowCart) {
+    SideBackArrowCart.addEventListener("click", function () {
+      CloseSideCart();
+    });
   }
 
   if (BuyingBtn) {
@@ -752,8 +770,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (arrowToTop) {
-    arrowToTop.onclick = () => {
-      scroll.scrollTo(0, { duration: 3 });
-    };
+    arrowToTop.addEventListener("click", () => {
+      scrollToTopWithDelay();
+    });
   }
 });
