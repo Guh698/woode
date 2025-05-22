@@ -225,6 +225,12 @@ document.addEventListener("DOMContentLoaded", () => {
     tittle.classList.remove("show");
     productPage.classList.remove("show");
     CloseCartPage();
+
+    if (contact_page.classList.contains("show")) {
+      pauseScroll();
+    } else {
+      resumeScroll();
+    }
   }
 
   function ToggleProductPage() {
@@ -397,8 +403,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (search_screen.classList.contains("show")) {
       lupa_input.classList.add("show");
-    } else {
-      lupa_input.classList.remove("show");
     }
   }
 
