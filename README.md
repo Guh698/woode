@@ -1,6 +1,6 @@
 # Woode - Showroom Digital
 
-**Woode** é uma plataforma digital refinada para **showroom de produtos**, integrando funcionalidades de **e-commerce** com **carrinho de compras** e **compra via WhatsApp**. Este projeto utiliza tecnologias modernas como **GSAP** para animações fluidas e uma experiência de navegação imersiva.
+**Woode** é uma plataforma digital refinada para **showroom de produtos**, integrando funcionalidades de **e-commerce** com **carrinho de compras** e **compra via WhatsApp**. Este projeto utiliza tecnologias modernas como **GSAP** para animações fluidas e para uma experiência de navegação imersiva.
 
 ---
 
