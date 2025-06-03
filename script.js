@@ -110,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
           start: "top 100%",
           end: "top 20%",
           scrub: true,
+          once: true,
         },
       }
     );
