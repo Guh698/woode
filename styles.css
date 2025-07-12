@@ -123,8 +123,8 @@ body {
   a,
   h1,
   button {
-    -webkit-tap-highlight-color: transparent; /* Remove o highlight no toque */
-    touch-action: manipulation; /* Melhora a resposta ao toque */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   /*nav*/
@@ -280,7 +280,7 @@ body {
   }
 
   .intro-container .intro-banner {
-    background-image: url(imgs/banner.jpg);
+    background-image: url(https://res.cloudinary.com/dabshzrnj/image/upload/v1752344650/banner_fwx1rh.webp);
     background-size: cover;
     background-position: center;
     padding: 23em 0em;
@@ -298,6 +298,7 @@ body {
     display: flex;
     text-align: center;
     justify-content: center;
+    padding: 0;
     padding-right: 10px;
     text-transform: uppercase;
     color: #fff;
@@ -1529,34 +1530,36 @@ body {
   /*navbar mobile (sidebar)*/
   /*open/close icons*/
   .mobile {
+    position: relative;
     display: flex;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
-    width: 90vw;
-    height: 70px;
+    width: 100%;
+    height: 80px;
     overflow: hidden;
   }
 
   .mobile .mobile-menu {
-    position: absolute;
+    position: relative;
     overflow: hidden;
     width: 80px;
     height: 100%;
     font-size: 24px;
     overflow: hidden;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .mobile .mobile-menu.show {
     opacity: 0;
     display: none;
+    overflow: hidden;
   }
 
   .fa-bars {
     position: absolute;
     display: flex;
-    margin-top: 3px;
-    margin-left: 15px;
     opacity: 1;
     pointer-events: auto;
     justify-self: center;
@@ -1565,18 +1568,18 @@ body {
     padding: 20px;
     border-radius: 50%;
     transition: transform 0.5s ease-in-out;
+    overflow: hidden;
   }
 
   .fa-bars.remove-show {
     pointer-events: none;
     opacity: 0;
     transform: rotate(360deg);
+    overflow: hidden;
   }
 
   .fa-xmark {
     position: absolute;
-    margin-top: 3px;
-    margin-left: 15px;
     background-color: #f5f5dc;
     color: #000;
     opacity: 0;
@@ -1586,6 +1589,7 @@ body {
     padding: 20px 22px;
     border-radius: 50%;
     transition: 0.5s ease-in-out;
+    overflow: hidden;
   }
 
   .fa-xmark.show {
@@ -1594,6 +1598,7 @@ body {
     pointer-events: auto;
     transform: rotate(360deg);
     color: #71503a;
+    overflow: hidden;
   }
 
   .menu-mbl {
@@ -1608,6 +1613,7 @@ body {
 
   .menu-mbl.show {
     opacity: 1;
+    overflow: hidden;
   }
 
   .menu-items {
@@ -2035,7 +2041,7 @@ body {
     padding: 0;
     height: 0;
     pointer-events: none;
-    width: 0;
+    width: 100%;
     background-color: #f5f5dc;
     flex-direction: column;
     opacity: 0;
@@ -3151,12 +3157,13 @@ body {
 
   /*cart page*/
   .cart-page-container {
-    min-height: 100vh;
+    height: 0;
     gap: 30px;
   }
 
   .cart-page-container.show {
     padding-top: 120px;
+    min-height: 100vh;
   }
 
   #backArrowCart {
